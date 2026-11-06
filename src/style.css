@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #17233b;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+.app {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid #e6eaf1;
+  border-radius: 20px;
+  box-shadow: 0 16px 50px #20304b12;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 30px;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #5672d7;
+}
+h1 {
+  margin: 5px 0;
+  font-size: 36px;
+  letter-spacing: -0.04em;
+}
+header p {
+  margin: 0;
+  color: #718099;
+}
+.score {
+  color: #718099;
+}
+.score strong {
+  font-size: 27px;
+  color: #304fc2;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(500px, 1fr) 290px;
+  gap: 38px;
+  align-items: start;
+}
+.board-wrap {
+  overflow: auto;
+  padding: 8px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(13, 34px);
+  grid-template-rows: repeat(11, 34px);
+  gap: 3px;
+  width: max-content;
+  margin: 8px auto 24px;
+}
+.cell {
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid #b9c5da;
+  border-radius: 5px;
+  background: #fff;
+  color: #182747;
+  outline: 0;
+}
+.cell:focus {
+  border-color: #4865db;
+  box-shadow: 0 0 0 2px #4865db38;
+  z-index: 2;
+}
+.cell.highlight {
+  background: #e8edff;
+}
+.cell.highlight:focus {
+  background: #ffe98d;
+}
+.cell.correct {
+  background: #c8f2dc;
+  border-color: #3aab71;
+}
+.cell.wrong {
+  background: #ffd6d3;
+  border-color: #e36a64;
+}
+.number {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: start;
+  justify-self: start;
+  margin: 1px 0 0 2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 9px;
+  color: #546582;
+  cursor: pointer;
+  z-index: 3;
+}
+.actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.actions button {
+  border: 1px solid #d6deeb;
+  border-radius: 9px;
+  background: #fff;
+  color: #263654;
+  padding: 10px 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.actions button:hover {
+  background: #f3f6fc;
+}
+.actions .primary {
+  background: #405bd3;
+  border-color: #405bd3;
+  color: #fff;
+}
+.actions .primary:hover {
+  background: #3048b4;
+}
+.feedback {
+  font-size: 13px;
+  color: #66758e;
+}
+aside h2 {
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: #253654;
+}
+aside .down-title {
+  margin-top: 24px;
+}
+.clue {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 8px 9px;
+  margin: 2px 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #475873;
+  line-height: 1.45;
+  cursor: pointer;
+}
+.clue b {
+  color: #1c2c49;
+}
+.clue span {
+  white-space: nowrap;
+  color: #8995a8;
+}
+.clue:hover,
+.clue.selected {
+  background: #fff1bd;
+  color: #253654;
+}
+@media (max-width: 850px) {
+  .app {
+    margin: 15px;
+    padding: 22px;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .board-wrap {
+    padding: 0;
+  }
+  .board {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  aside {
+    columns: 2;
+    column-gap: 18px;
+  }
+  aside h2,
+  aside button {
+    break-inside: avoid;
+  }
+}
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(13, 27px);
+    grid-template-rows: repeat(11, 27px);
+    gap: 2px;
+  }
+  .cell {
+    width: 27px;
+    height: 27px;
+    font-size: 15px;
+  }
+  .number {
+    font-size: 8px;
+  }
+  .app {
+    padding: 17px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  aside {
+    columns: 1;
+  }
+}
